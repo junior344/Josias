@@ -1,0 +1,163 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background: #161616;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.text1{
+    text-align: center;
+    font-size: 50px;    
+    font-weight: 500;
+    letter-spacing: 5px;
+    position: relative;
+    animation: text 5s 1;
+}
+svg{
+    margin: 40px;
+}
+
+.circle-btn {
+    outline: none;
+    background: none;
+    border: none;
+    position: relative;
+    transition: transform 0.4s ease;
+}
+
+.circle-btn:hover{
+    transform: scale(1.2);
+}
+
+.circle-btn:active{
+    transform: scale(1.5);
+}
+
+.circle-btn span{
+    position: absolute;
+    transform: (-50%, -50%);
+    top: 40%;
+    left: 40%;
+    font-size: 2em;
+    will-change: transform;
+}   
+svg{
+    transform: rotate(-90deg);
+}
+
+.bg-svg{
+    stroke: #b8b8b834;
+    stroke-width: 3;
+}
+.filled{
+    stroke: #fff;
+    stroke-width: 3;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 0.4s ease-in-out;
+}
+
+.circle-btn:hover .filled{
+    stroke-dashoffset: 0;
+}
+/* ---------------------- anniv------ */
+
+#wrapper {
+    width: 100%;
+    height: 100vh;
+    
+}
+
+.portfolio-item{
+    width: 100%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+.portfolio-thumb img {
+    max-width: 360px;
+    opacity: 0.4;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
+    transform-origin: 90% center;
+}
+
+.portfolio-thumb:nth-child(2){
+    max-width: 560px;
+}
+.cursor {
+    position: absolute;
+    background: white;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    z-index: 1;
+    transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+        0.2s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+    user-select: none;
+    pointer-events: none;
+    transform: scale(0.8);
+    font-size: 0.1em;
+}
+.cursor::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background-image: url("http://mirkozeppieri.emanuelepapale.com/wp-content/uploads/2018/07/project-hover-cursor.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 100%;
+    opacity: 0;
+}
+.cursor.active {
+    opacity: 1;
+    transform: scale(12);
+}
+
+.cursor.active::before {
+    opacity: 1;
+}
+
+.cursor-follower {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    z-index: 1;
+    transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+        0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+    user-select: none;
+    pointer-events: none;
+    transform: translate(4px, 4px);
+}
+
+.cursor-follower.active {
+    opacity: 0.3;
+    transform: scale(0);
+}
+.portfolio-thumb {
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
+}
+.portfolio-item:hover .portfolio-thumb {
+    transform: translateX(-1.75rem);
+}
+
+.portfolio-item:hover .portfolio-thumb img {
+    opacity: 0.8;
+    transform: scale(1.2);
+}

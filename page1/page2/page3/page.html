@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="page.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <title>Happy Birthday</title>
+</head>
+<body>
+    
+    <div class="cursor"></div>
+    <div class="cursor-follower">  </div>
+    <div id="wrapper">
+        <div class="portfolio-item">
+            <div class="portfolio-thumb">
+                <img src="./ocean_Image2.jpg" alt="" />
+            </div>
+            <div class="portfolio-thumb">
+                <span class="text1">joyeux anniversaire et que le meilleurs de ton passé soit le pire de ton avenir.
+                    
+                </span>
+                <button class="circle-btn"> 
+                    <a href="./Page4/page4.html" >
+                        <svg width="120" height="120" viewBox="-10 -10 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    
+                            <circle cx="60" cy="60" r="59.5" stroke="white" class="bg-svg" />
+                            <circle cx="60" cy="60" r="59.5" stroke="#222222" class="filled" pathLength="1" />
+                        </svg>
+                        <span>💖</span>
+                    </a>
+                </button>
+            
+            </div>
+
+
+            
+        </div>
+        
+    </div>
+  
+
+    <!-- <script src="./app.js"></script> -->
+            <script>
+                var cursor = $(".cursor"),
+                    follower = $(".cursor-follower");
+
+                var posX = 0,
+                    posY = 0,
+                    mouseX = 0,
+                    mouseY = 0;
+
+                TweenMax.to({}, 0.016, {
+                    repeat: -1,
+                    onRepeat: function () {
+                        posX += (mouseX - posX) / 9;
+                        posY += (mouseY - posY) / 9;
+
+                        TweenMax.set(follower, {
+                            css: {
+                                left: posX - 20,
+                                top: posY - 20
+                            }
+                        });
+
+                        TweenMax.set(cursor, {
+                            css: {
+                                left: mouseX,
+                                top: mouseY
+                            }
+                        });
+                    }
+                });
+
+                $(document).on("mousemove", function (e) {
+                    mouseX = e.pageX;
+                    mouseY = e.pageY;
+                });
+
+                $(".portfolio-item img").on("mouseenter", function () {
+                    cursor.addClass("active");
+                    follower.addClass("active");
+                });
+
+                $(".portfolio-item img").on("mouseleave", function () {
+                    cursor.removeClass("active");
+                    follower.removeClass("active");
+                });
+            </script>
+</body>
+</html>
